@@ -101,7 +101,25 @@
 			"path": "pages/plugin/verticalnav",
 			"style": {}
 		}
-	],
+	    ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/register/register",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"mp-alipay": {
 			/* 支付宝小程序特有相关 */
@@ -118,7 +136,8 @@
 		"current": 0, //当前激活的模式(list 的索引项)
 		"list": [{
 				"name": "表单", //模式名称
-				"path": "pages/component/form", //启动页面
+				// "path": "pages/component/form", //启动页面
+				"path": "pages/login/login", //启动页面
 				"query": "" //启动参数
 			}
 		]
