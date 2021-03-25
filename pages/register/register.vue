@@ -68,7 +68,7 @@
 					name: '',
 					classname: '',
 					role: '0',
-					sex: ''
+					sex: '1'
 				},
 				index: -1,
 				picker: ['喵喵喵', '汪汪汪', '哼唧哼唧']
@@ -82,10 +82,11 @@
 				this.form.role = val.detail.value
 			},
 			setSex(val) {
+				console.log(val)
 				this.form.sex = val.detail.value
 			},
 			register() {
-				console.log(this)
+				console.log(this.form)
 				if (this.form.role === '1') {
 					this.form.classname = ''
 				}
