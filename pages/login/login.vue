@@ -27,7 +27,18 @@
 		},
 		methods: {
 			login() {
-				console.log(this.username, this.password)
+				// console.log(this.username, this.password)
+				this.httpApi({
+					url: '/user/login',
+					method: 'post',
+					data: {
+						username: this.username,
+						password: this.password
+					}
+				})
+				.then(res => {
+					console.log(res)
+				})
 			}
 		}
 	}

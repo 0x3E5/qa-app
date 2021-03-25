@@ -13,6 +13,9 @@ Vue.component('plugin',plugin)
 import cuCustom from './colorui/components/cu-custom.vue'
 Vue.component('cu-custom',cuCustom)
 
+import { Http } from './utils/request.js'
+Vue.prototype.httpApi = Http
+
 Vue.config.productionTip = false
 
 App.mpType = 'app'
