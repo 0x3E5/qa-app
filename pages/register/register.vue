@@ -97,6 +97,17 @@
 				})
 				.then(res => {
 					// console.log(res)
+					const { status, msg } = res
+					if(status === 10000){
+						uni.showToast({
+							title:'注册成功',
+							complete:() =>{
+								setTimeout(()=>{
+									uni.navigateBack()
+								},1500)
+							}
+						})
+					}
 				})
 				.catch(err => {
 					// console.log(err)

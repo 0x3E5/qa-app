@@ -25,15 +25,14 @@ export const Http = (options) => {
 			data: options.data || {},
 			header,
 			success: (res) => {
-				console.log(res)
-				if (res.data.status === 20000) {
+				if (res.data.status !== 10000) {
 					uni.showToast({
 						title: res.data.msg,
 						icon: 'none'
 					})
-					reject(null)
+					reject(res.data)
 				} else {
-					resolve(res)
+					resolve(res.data)
 				}
 			},
 			fail: (err) => {

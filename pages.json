@@ -119,6 +119,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/mine/mine",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/home/home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/perinfo/perinfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"mp-alipay": {
@@ -137,7 +164,7 @@
 		"list": [{
 				"name": "表单", //模式名称
 				// "path": "pages/component/form", //启动页面
-				"path": "pages/login/login", //启动页面
+				"path": "pages/mine/mine", //启动页面
 				"query": "" //启动参数
 			}
 		]

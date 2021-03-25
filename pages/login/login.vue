@@ -37,7 +37,14 @@
 					}
 				})
 				.then(res => {
-					console.log(res)
+					// console.log(res)
+					const { status, data } = res
+					if (status === 10000) {
+						uni.setStorageSync('info',JSON.stringify(data))
+						uni.redirectTo({
+							url:'../mine/mine'
+						})
+					}
 				})
 			}
 		}
