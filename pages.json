@@ -146,6 +146,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/classManage/classManage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"mp-alipay": {

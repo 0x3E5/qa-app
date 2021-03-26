@@ -33,7 +33,13 @@
 			}
 		},
 		onShow() {
-			this.info = JSON.parse(uni.getStorageSync('info'))
+			try{
+				this.info = JSON.parse(uni.getStorageSync('info'))
+			}catch (e) {
+				this.info = {
+					name: 'Anonymouse'
+				}
+			}
 		}
 	}
 </script>
