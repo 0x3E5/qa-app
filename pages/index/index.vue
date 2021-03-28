@@ -22,7 +22,7 @@
 				</view>
 				<view :class="PageCur=='plugin'?'text-green':'text-gray'">扩展</view>
 			</view>
-			<view class="action" @click="NavChange" data-cur="mine">
+			<view class="action" @click="goHome" data-cur="mine">
 				<view class="cuIcon-cu-image">
 					<image :src="'/static/tabbar/about'+ [PageCur == 'mine'?'_cur':''] + '.png'"></image>
 				</view>
@@ -42,6 +42,11 @@
 		methods: {
 			NavChange: function(e) {
 				this.PageCur = e.currentTarget.dataset.cur
+			},
+			goHome(){
+				uni.redirectTo({
+					url:'../mine/mine'
+				})
 			}
 		}
 	}

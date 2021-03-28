@@ -27,7 +27,6 @@
 		},
 		methods: {
 			login() {
-				// console.log(this.username, this.password)
 				this.httpApi({
 					url: '/user/login',
 					method: 'post',

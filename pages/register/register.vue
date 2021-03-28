@@ -45,9 +45,9 @@
 			</view>
 			<view v-if="form.role === '0'" class="cu-form-group margin-top">
 				<view class="title">班级选择</view>
-				<picker @change="PickerChange" :value="form.classname" :range="picker">
+				<picker @change="PickerChange" :value="form.classname" :range="picker" range-key="classname">
 					<view class="picker">
-						{{form.classname !== ''?picker[form.classname]:'请选择班级'}}
+						{{form.classname !== ''?form.classname:'请选择班级'}}
 					</view>
 				</picker>
 			</view>
@@ -71,12 +71,15 @@
 					sex: '1'
 				},
 				index: -1,
-				picker: ['喵喵喵', '汪汪汪', '哼唧哼唧']
+				picker: []
 			}
+		},
+		created() {
+			this.getList()
 		},
 		methods: {
 			PickerChange(e) {
-				this.form.classname = e.detail.value
+				this.form.classname = this.picker[e.detail.value].classname
 			},
 			setRole(val) {
 				this.form.role = val.detail.value
@@ -85,33 +88,53 @@
 				console.log(val)
 				this.form.sex = val.detail.value
 			},
+			getList() {
+				this.httpApi({
+						url: '/findAllClass',
+						method: 'get'
+					})
+					.then(res => {
+						// console.log(res)
+						const {
+							status,
+							data
+						} = res
+						if (status === 10000) {
+							// console.log(data)
+							this.picker = data
+						}
+					})
+			},
 			register() {
 				console.log(this.form)
 				if (this.form.role === '1') {
 					this.form.classname = ''
 				}
 				this.httpApi({
-					url: '/user/register',
-					method: 'post',
-					data: this.form
-				})
-				.then(res => {
-					// console.log(res)
-					const { status, msg } = res
-					if(status === 10000){
-						uni.showToast({
-							title:'注册成功',
-							complete:() =>{
-								setTimeout(()=>{
-									uni.navigateBack()
-								},1500)
-							}
-						})
-					}
-				})
-				.catch(err => {
-					// console.log(err)
-				})
+						url: '/user/register',
+						method: 'post',
+						data: this.form
+					})
+					.then(res => {
+						// console.log(res)
+						const {
+							status,
+							msg
+						} = res
+						if (status === 10000) {
+							uni.showToast({
+								title: '注册成功',
+								complete: () => {
+									setTimeout(() => {
+										uni.navigateBack()
+									}, 1500)
+								}
+							})
+						}
+					})
+					.catch(err => {
+						// console.log(err)
+					})
 			}
 		}
 	}
