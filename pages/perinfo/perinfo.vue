@@ -36,7 +36,7 @@
 					</button>
 				</view>
 				<view class="cu-item arrow">
-					<navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+					<navigator class="content" hover-class="none" url="../wor/wor" open-type="navigate">
 						<text class="cuIcon-copy text-orange"></text>
 						<text class="text-grey">试题管理</text>
 					</navigator>
